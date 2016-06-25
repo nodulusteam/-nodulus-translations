@@ -1,4 +1,3 @@
-"use strict";
 var express = require('express');
 var http = require('http');
 var querystring = require('querystring');
@@ -6,12 +5,12 @@ var router = express.Router();
 var util = require('util');
 var fs = require('fs');
 var path = require('path');
-var api = require("@nodulus/api");
+var api = require('@nodulus/api');
 var moment = require('moment');
-var dal_1 = require("@nodulus/data");
+var dal = require('@nodulus/data');
 router.get('/languages', function (req, res) {
     var lang = req.query.lang;
-    dal_1.dal.connect(function (err, db) {
+    dal.connect(function (err, db) {
         if (db === null) {
             return res.json(err);
         }
